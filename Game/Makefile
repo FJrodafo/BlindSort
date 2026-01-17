@@ -1,6 +1,6 @@
 PREFIX ?= /usr/local
 BINDIR = $(PREFIX)/bin
-TARGET = blindsort-tty
+TARGET = blindsort
 SOURCE = game.sh
 
 .PHONY: install uninstall

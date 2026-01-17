@@ -1,0 +1,41 @@
+name: Makefile CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y build-essential coreutils
+
+      - name: Test install locally
+        working-directory: Game
+        run: |
+          mkdir -p "$HOME/.local/bin"
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          make install PREFIX="$HOME/.local"
+          command -v blindsort
+
+      - name: Test --help and -h
+        run: |
+          blindsort --help
+          blindsort -h
+
+      - name: Test --version and -v
+        run: |
+          blindsort --version
+          blindsort -v
+
+      - name: Test uninstall
+        working-directory: Game
+        run: |
+          make uninstall PREFIX="$HOME/.local"
+          test ! -f "$HOME/.local/bin/blindsort"

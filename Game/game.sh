@@ -1,5 +1,34 @@
 #!/bin/bash
 
+VERSION="1.0.0"
+
+show_help() {
+    cat << EOF
+Welcome to the Blind Sorting game!
+
+A simple terminal-based number sorting game!
+
+How to play:
+    - Choose the number of positions (e.g., 6).
+    - Random numbers will be given to you.
+    - Place each number into an empty position.
+    - When all positions are filled, the game checks if the numbers are sorted in ascending order.
+    - If sorted, you win; if not, you lose.
+EOF
+}
+
+# Handle flags
+case "$1" in
+    --help|-h)
+        show_help
+        exit 0
+        ;;
+    --version|-v)
+        echo "blindsort $VERSION"
+        exit 0
+        ;;
+esac
+
 CYAN="\e[36m"
 RED="\e[31m"
 GREEN="\e[32m"
@@ -96,6 +125,5 @@ echo
 if (( is_sorted == 1 )); then
     echo -e "${GREEN}Congratulations! Positions are in ascending order.${RESET}"
 else
-    echo -e "${RED}Sorry, positions are not in ascending order.${RESET}"
-    echo -e "${RED}Game over.${RESET}"
+    echo -e "${RED}Positions are not in ascending order. Game over.${RESET}"
 fi
