@@ -157,6 +157,6 @@ blindsort -h
 
 ![Example](https://raw.githubusercontent.com/FJrodafo/BlindSort/main/Assets/Example.png "Example")
 
-![Winner](https://raw.githubusercontent.com/FJrodafo/BlindSort/main/Assets/Winner.png "Winner")
-
 ![Loser](https://raw.githubusercontent.com/FJrodafo/BlindSort/main/Assets/Loser.png "Loser")
+
+![Winner](https://raw.githubusercontent.com/FJrodafo/BlindSort/main/Assets/Winner.png "Winner")
