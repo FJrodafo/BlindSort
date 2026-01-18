@@ -15,7 +15,7 @@
 
 ## Introduction
 
-A simple terminal-based number sorting game, made with shell, powered by bash, designed by [m3tozz](https://github.com/m3tozz)!
+A simple terminal-based number sorting game, written in shell scripting, powered by Bash, designed by [m3tozz](https://github.com/m3tozz)!
 
 ## Attribution
 
