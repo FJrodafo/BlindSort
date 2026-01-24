@@ -19,7 +19,9 @@ A simple terminal-based number sorting game, written in shell scripting, powered
 
 ## Attribution
 
-Game originally designed by [m3tozz](https://github.com/m3tozz), check the original repository at https://github.com/m3tozz/blindsort-tty
+Forked from [m3tozz/blindsort-tty](https://github.com/m3tozz/blindsort-tty)
+
+Game originally designed by [m3tozz](https://github.com/m3tozz)
 
 ## Project Structure
 
