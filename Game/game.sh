@@ -1,7 +1,14 @@
 #!/bin/bash
 
+# This script implements a blind sorting game in the terminal.
+# The user chooses how many positions will be available and, on each turn, receives a random number that must be placed in an empty position without knowing the future numbers.
+# Once all positions are filled (or the maximum number of attempts is reached), the game checks if the numbers are sorted in ascending order.
+# If they are, the user wins; otherwise, the user lose.
+
+# Script version
 VERSION="1.0.3"
 
+# Function that displays help information
 show_help() {
     cat << EOF
 Welcome to the Blind Sorting game!
@@ -17,7 +24,7 @@ How to play:
 EOF
 }
 
-# Handle flags
+# Handle command-line flags
 case "$1" in
     --help|-h)
         show_help
@@ -29,7 +36,7 @@ case "$1" in
         ;;
 esac
 
-# Colors
+# ANSI color codes for terminal output
 RESET="\e[0m"
 RED="\e[31m"
 GREEN="\e[32m"
@@ -38,6 +45,7 @@ CYAN="\e[36m"
 BRIGHTRED="\e[91m"
 BRIGHTGREEN="\e[92m"
 
+# Ask the user for the number of positions and validate input
 while true; do
     read -p "Enter number of positions (e.g., 6): " max_positions
     if [[ "$max_positions" =~ ^[1-9][0-9]*$ ]]; then
@@ -47,56 +55,74 @@ while true; do
     fi
 done
 
+# Initialize the positions array with zeros (0 = empty slot)
 positions=()
 for ((i=0; i<max_positions; i++)); do
     positions+=("0")
 done
 
+# Maximum number of attempts allowed
 max_attempts=20
 
+# Display game start information
 echo -e "${CYAN}Blind Sorting Game Started with $max_positions positions, max attempts: $max_attempts${RESET}"
+
+# Print position indices
 echo -n -e "${CYAN}Positions: ${RESET}"
 for ((i=1; i<=max_positions; i++)); do
     echo -n "$i "
 done
 echo
 
+# Function to print current state of positions
 print_positions() {
     echo -n -e "${CYAN}Positions: ${RESET}"
     for val in "${positions[@]}"; do
         if [ "$val" -eq 0 ]; then
+            # Empty positions are shown as underscores
             echo -n -e "${YELLOW}_ ${RESET}"
         else
+            # Filled positions show the stored number
             echo -n -e "${YELLOW}$val ${RESET}"
         fi
     done
     echo
 }
 
+# Function that checks if all positions are filled
 all_filled() {
     for val in "${positions[@]}"; do
         if [ "$val" -eq 0 ]; then
-            return 1 
+            return 1  # Not all positions are filled
         fi
     done
-    return 0 
+    return 0  # All positions are filled
 }
 
+# Show initial empty board
 print_positions
 
+# Main game loop
 for ((attempt=1; attempt<=max_attempts; attempt++)); do
+    # Generate a random number between 1 and 50
     number=$(( RANDOM % 50 + 1 ))
     echo
     echo -e "${CYAN}Number: ${YELLOW}$number${RESET}"
-    
+
+    # Ask the user where to place the number
     while true; do
         read -p "Which position do you want to place it in? (1-$max_positions): " position
+
+        # Validate numeric input
         if [[ "$position" =~ ^[0-9]+$ ]]; then
             if (( position >= 1 && position <= max_positions )); then
                 index=$((position - 1))
+
+                # Check if the chosen position is already occupied
                 if [ "${positions[$index]}" -ne 0 ]; then
                     echo -e "${RED}That position is already taken! Choose another.${RESET}"
                 else
+                    # Place the number in the chosen position
                     positions[$index]=$number
                     break
                 fi
@@ -107,8 +133,11 @@ for ((attempt=1; attempt<=max_attempts; attempt++)); do
             echo -e "${RED}Please enter a valid number.${RESET}"
         fi
     done
+
+    # Print updated board
     print_positions
-    
+
+    # Stop early if all positions are filled
     if all_filled; then
         echo
         echo -e "${CYAN}All positions are filled, checking order...${RESET}"
@@ -116,6 +145,7 @@ for ((attempt=1; attempt<=max_attempts; attempt++)); do
     fi
 done
 
+# Check if the numbers are sorted in ascending order
 is_sorted=1
 for ((i=0; i<max_positions-1; i++)); do
     if (( positions[i] > positions[i+1] )); then
@@ -124,6 +154,7 @@ for ((i=0; i<max_positions-1; i++)); do
     fi
 done
 
+# Display final result
 echo
 if (( is_sorted == 1 )); then
     echo -e "${BRIGHTGREEN}Congratulations! ${GREEN}Positions are in ascending order.${RESET}"
