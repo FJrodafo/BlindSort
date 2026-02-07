@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# This script implements a blind sorting game in the terminal.
-# The user chooses how many positions will be available and, on each turn, receives a random number that must be placed in an empty position without knowing the future numbers.
-# Once all positions are filled (or the maximum number of attempts is reached), the game checks if the numbers are sorted in ascending order.
-# If they are, the user wins; otherwise, the user lose.
+# This script is available on GitHub Gist at https://gist.github.com/FJrodafo/14e5bd86761670ddc4f73109e1f1a888
+# Explore more gists by Francisco José Rodríguez Afonso at https://gist.github.com/FJrodafo
+
+# A simple terminal-based number sorting game where the user places random numbers into chosen positions without knowing future values.
+# After all positions are filled (or attempts run out), the game checks if the numbers are in ascending order to determine a win or loss.
 
 # Script version
-VERSION="1.0.3"
+VERSION="1.0.4"
 
 # Function that displays help information
 show_help() {
