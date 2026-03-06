@@ -2,6 +2,8 @@
 
 A simple terminal-based number sorting game!
 
+[![GitHub Stars](https://img.shields.io/github/stars/FJrodafo/BlindSort?style=social&logo=github&logoColor=000000&label=Stars&labelColor=ffffff&color=ffffff)](https://github.com/FJrodafo/BlindSort/stargazers)
+
 ## Index
 
 1. [Introduction](#introduction)
