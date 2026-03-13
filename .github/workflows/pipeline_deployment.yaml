@@ -13,7 +13,6 @@ jobs:
           sudo apt update
           sudo apt install -y build-essential coreutils
       - name: Test install locally
-        working-directory: Game
         run: |
           mkdir -p "$HOME/.local/bin"
           echo "$HOME/.local/bin" >> $GITHUB_PATH
@@ -28,7 +27,6 @@ jobs:
           blindsort --version
           blindsort -v
       - name: Test uninstall
-        working-directory: Game
         run: |
           make uninstall PREFIX="$HOME/.local"
           test ! -f "$HOME/.local/bin/blindsort"
