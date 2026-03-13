@@ -1,7 +1,173 @@
-<div align="center">
-    <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FJrodafo/BlindSort/main/Assets/Banner/Dark.png">
-        <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/FJrodafo/BlindSort/main/Assets/Banner/Light.png">
-        <img alt="BlindSort" src="https://raw.githubusercontent.com/FJrodafo/BlindSort/main/Assets/Banner/Light.png">
-    </picture>
-</div>
+# BlindSort
+
+A simple terminal-based number sorting game!
+
+[![GitHub Stars](https://img.shields.io/github/stars/FJrodafo/BlindSort?style=social&logo=github&logoColor=000000&label=Stars&labelColor=ffffff&color=ffffff)](https://github.com/FJrodafo/BlindSort/stargazers)
+
+## Index
+
+1. [Introduction](#introduction)
+2. [How to play](#how-to-play)
+3. [Download the game](#download-the-game)
+4. [Install dependencies](#install-dependencies)
+5. [Install it globally](#install-it-globally)
+6. [Install it locally](#install-it-locally)
+7. [Testing](#testing)
+8. [Run it!](#run-it)
+9. [Additional commands](#additional-commands)
+10. [Screenshots](#screenshots)
+11. [Credits](#credits)
+
+## Introduction
+
+A simple terminal-based number sorting game, written in shell scripting, powered by Bash, designed by [m3tozz](https://github.com/m3tozz)!
+
+<details>
+<summary>Project structure</summary>
+
+```
+/
+├── blind-sort.sh
+└── Makefile
+```
+</details>
+
+## How to play
+
+- Choose the number of positions (e.g., 6).  
+- Random numbers will be given to you.  
+- Place each number into an empty position.  
+- When all positions are filled, the game checks if the numbers are sorted in ascending order.  
+- If sorted, you win; if not, you lose.
+
+## Download the game
+
+Open your directory where you save your repositories and clone it with the following command:
+
+```shell
+# From GitHub
+git clone https://github.com/FJrodafo/BlindSort.git
+```
+
+## Install dependencies
+
+This game requires the following dependencies to be able to install/uninstall it via Makefile (In this case, they will be installed for a Linux Debian system via apt):
+
+```shell
+sudo apt update
+sudo apt install -y build-essential coreutils
+```
+
+## Install it globally
+
+Install the game globally with the following command:
+
+```shell
+sudo make install
+```
+
+As you might guess, you can uninstall the game with the following command (I'll be sad if you uninstall it... 🥲):
+
+```shell
+sudo make uninstall
+```
+
+## Install it locally
+
+The advantages of installing the game locally are that you wouldn't need administrator privileges to install it; the disadvantage is that you would need to configure some extra files for it to work correctly, but don't worry because it's all documented below...
+
+First we need to make sure that the `~/.local/bin` directory exists with the following command:
+
+```shell
+mkdir -p "$HOME/.local/bin"
+```
+
+Now we need to add the directory path to `$PATH`. To do this, we add the following line of code to our `.bashrc` file with the following command:
+
+```shell
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+If we don't want to permanently add that path to $PATH, we could run the following command to add the path temporarily in the current session, that is, the terminal in which you will run the following command (Simply ignore the following command if you already executed the one in the previous step):
+
+```shell
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+Now we can finally install the game locally with the following command:
+
+```shell
+make install PREFIX="$HOME/.local"
+```
+
+Again, as you might guess, you can uninstall the game with the following command (Please do not uninstall it... 🥲):
+
+```shell
+make uninstall PREFIX="$HOME/.local"
+```
+
+## Testing
+
+If you've made it this far and want to learn a little more about testing your installation, check out the following commands:
+
+This command verifies that the installation was completed successfully.
+
+```shell
+command -v blindsort
+```
+
+The second one verifies that you uninstalled the game correctly, which I hope you haven't done...
+
+```shell
+# Globally
+test ! -f "/usr/local/bin/blindsort"
+```
+
+```shell
+# Locally
+test ! -f "$HOME/.local/bin/blindsort"
+```
+
+## Run it!
+
+Finally, if you have installed the game, either globally or locally, you can now run the following command to start a game!
+
+```shell
+blindsort
+```
+
+## Additional commands
+
+To check the current version of the game, run the following command:
+
+```shell
+blindsort --version
+```
+
+If you need help, run the following command:
+
+```shell
+blindsort --help
+```
+
+A reduced version of the previous commands exists:
+
+```shell
+blindsort -v
+blindsort -h
+```
+
+## Screenshots
+
+![Example](https://raw.githubusercontent.com/FJrodafo/BlindSort/main/assets/example.png "Example")
+
+![Loser](https://raw.githubusercontent.com/FJrodafo/BlindSort/main/assets/loser.png "Loser")
+
+![Winner](https://raw.githubusercontent.com/FJrodafo/BlindSort/main/assets/winner.png "Winner")
+
+## Credits
+
+Forked from [m3tozz/blindsort-tty](https://github.com/m3tozz/blindsort-tty) without any license, CC0-1.0 license applied by default.
+
+Game originally designed by [m3tozz](https://github.com/m3tozz)
