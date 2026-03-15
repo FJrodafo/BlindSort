@@ -14,9 +14,9 @@ jobs:
           sudo apt install -y build-essential coreutils
       - name: Test install locally
         run: |
-          mkdir -p "$HOME/.local/bin"
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
-          make install PREFIX="$HOME/.local"
+          mkdir -p '$HOME/.local/bin'
+          echo '$HOME/.local/bin' >> $GITHUB_PATH
+          make install PREFIX='$HOME/.local'
           command -v blindsort
       - name: Test --help and -h
         run: |
@@ -28,5 +28,5 @@ jobs:
           blindsort -v
       - name: Test uninstall
         run: |
-          make uninstall PREFIX="$HOME/.local"
-          test ! -f "$HOME/.local/bin/blindsort"
+          make uninstall PREFIX='$HOME/.local'
+          test ! -f '$HOME/.local/bin/blindsort'
