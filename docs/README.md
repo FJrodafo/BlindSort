@@ -32,6 +32,10 @@ This project has been developed on a [Linux](https://github.com/torvalds/linux) 
 
 ```
 /
+├── assets/
+|   ├── example.png
+|   ├── loser.png
+|   └── winner.png
 ├── docs/
 |   ├── _config.yaml
 |   ├── CODE_OF_CONDUCT.md
