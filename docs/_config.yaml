@@ -1,0 +1,4 @@
+theme: jekyll-theme-minimal
+title: BlindSort
+description: A simple terminal-based number sorting game!
+show_downloads: true
