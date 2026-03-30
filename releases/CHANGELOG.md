@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - This CHANGELOG.md to track all notable changes to this project going forward.
 - Documentation directory created for GitHub Pages.
+- Replacing `Makefile` with `install.sh` and `uninstall.sh`.
 
 ### Changed
 
