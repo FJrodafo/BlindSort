@@ -7,7 +7,7 @@
 # After all positions are filled (or attempts run out), the game checks if the numbers are in ascending order to determine a win or loss.
 
 # Script version
-VERSION="1.0.0"
+VERSION="2.0.0"
 
 # Function that displays help information
 show_help() {
