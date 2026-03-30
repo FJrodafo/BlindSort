@@ -1,17 +1,17 @@
 #!/bin/bash
 
 case "$1" in
-  -l|--local)
-    mkdir -p ~/.local/bin
-    cp blind-sort.sh ~/.local/bin/blindsort
-    chmod +x ~/.local/bin/blindsort
-    echo "BlindSort installed locally!"
-    ;;
   -g|--global)
     mkdir -p /usr/local/bin
     sudo cp blind-sort.sh /usr/local/bin/blindsort
     sudo chmod +x /usr/local/bin/blindsort
     echo "BlindSort installed globally!"
+    ;;
+  -l|--local)
+    mkdir -p ~/.local/bin
+    cp blind-sort.sh ~/.local/bin/blindsort
+    chmod +x ~/.local/bin/blindsort
+    echo "BlindSort installed locally!"
     ;;
   *)
     echo "Usage: ./install.sh [TARGET]"

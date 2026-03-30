@@ -1,13 +1,13 @@
 #!/bin/bash
 
 case "$1" in
-  -l|--local)
-    rm -f ~/.local/bin/blindsort
-    echo "BlindSort uninstalled locally!"
-    ;;
   -g|--global)
     sudo rm -f /usr/local/bin/blindsort
     echo "BlindSort uninstalled globally!"
+    ;;
+  -l|--local)
+    rm -f ~/.local/bin/blindsort
+    echo "BlindSort uninstalled locally!"
     ;;
   *)
     echo "Usage: ./uninstall.sh [TARGET]"
