@@ -8,25 +8,28 @@
 1. [Introduction](#introduction)
 2. [Project structure](#project-structure)
 3. [Clone the repository](#clone-the-repository)
-4. [Installation & Uninstallation](#installation--uninstallation)
-    1. [Prerequisites](#prerequisites)
-    2. [Install](#install)
-        1. [Global installation](#global-installation)
-        2. [Local installation](#local-installation)
-    3. [Uninstall](#uninstall)
-    4. [Shorthand flags](#shorthand-flags)
-5. [Testing](#testing)
-6. [Run it!](#run-it)
-7. [How to play](#how-to-play)
-8. [Additional commands](#additional-commands)
-9. [Screenshots](#screenshots)
-10. [Credits](#credits)
+4. [Set up the project](#set-up-the-project)
+5. [Install](#install)
+6. [Uninstall](#uninstall)
+7. [Shorthand flags](#shorthand-flags)
+8. [Testing](#testing)
+9. [Run it!](#run-it)
+10. [How to play](#how-to-play)
+11. [Additional commands](#additional-commands)
+12. [Screenshots](#screenshots)
+13. [Credits](#credits)
 
 ## Introduction
 
 A simple terminal-based number sorting game, written in shell scripting, powered by Bash, designed by [m3tozz](https://github.com/m3tozz)!
 
 This project has been developed on a [Linux](https://github.com/torvalds/linux) system. To learn more about the system, visit the [Dotfiles](https://github.com/FJrodafo/Dotfiles) repository.
+
+[To-do list](https://fjrodafo.github.io/BlindSort/todo)
+·
+[Changelog](https://fjrodafo.github.io/BlindSort/releases/changelog)
+·
+[Version](https://fjrodafo.github.io/BlindSort/releases/version)
 
 ## Project structure
 
@@ -37,10 +40,7 @@ This project has been developed on a [Linux](https://github.com/torvalds/linux) 
 |   ├── loser.png
 |   └── winner.png
 ├── docs/
-|   ├── _config.yaml
-|   ├── CODE_OF_CONDUCT.md
-|   ├── README.md
-|   └── SECURITY.md
+|   └── *.md
 ├── CONTRIBUTING
 ├── LICENSE
 ├── blind-sort.sh
@@ -55,16 +55,16 @@ Open a terminal in the directory where you store your repositories and clone it 
 ```shell
 # HTTPS
 git clone https://github.com/FJrodafo/BlindSort.git
+cd BlindSort/
 ```
 
 ```shell
 # SSH
 git clone git@github.com:FJrodafo/BlindSort.git
+cd BlindSort/
 ```
 
-## Installation & Uninstallation
-
-### Prerequisites
+## Set up the project
 
 First of all, make sure you have execute permissions for the scripts:
 
@@ -72,11 +72,11 @@ First of all, make sure you have execute permissions for the scripts:
 chmod +x install.sh uninstall.sh
 ```
 
-### Install
+## Install
 
 You can install the game in two ways depending on your needs:
 
-#### Global installation
+### Global installation
 
 Installs the game system-wide, making it accessible from anywhere in your terminal:
 
@@ -88,7 +88,7 @@ Installs the game system-wide, making it accessible from anywhere in your termin
 > 
 > Installs files into system directories (e.g., `/usr/local/bin`). Requires `sudo` permissions.
 
-#### Local installation
+### Local installation
 
 Install the game in the user's environment, making it accessible only from the user's terminal:
 
@@ -100,7 +100,7 @@ Install the game in the user's environment, making it accessible only from the u
 > 
 > Recommended if you don’t have admin permissions or want to avoid system-wide changes.
 
-### Uninstall
+## Uninstall
 
 Use the corresponding command based on how you installed the game:
 
@@ -112,7 +112,7 @@ Use the corresponding command based on how you installed the game:
 ./uninstall.sh --local
 ```
 
-### Shorthand flags
+## Shorthand flags
 
 The commands above also support shorthand flags:
 
